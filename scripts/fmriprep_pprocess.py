@@ -7,7 +7,10 @@ from config import PostProcess
 
 def run():
     dataset = fMriprep(PostProcess.dataset_path)
-    tasks = dataset.get_tasks(PostProcess.task_type)
+    if PostProcess.tasks == []:
+        tasks = dataset.get_tasks(PostProcess.task_type)
+    else:
+        tasks = PostProcess.tasks
     config = ProcessConfig()
     config.store_path = PostProcess.store_path
     config.dataset_type = 'fmri_perp'
@@ -15,4 +18,3 @@ def run():
     config.high_pass = PostProcess.high_pass
     config.t_r = PostProcess.t_r
     muti_process_img(subjects=tasks, process_num=PostProcess.n_process, config=config)
-    

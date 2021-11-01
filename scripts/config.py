@@ -42,6 +42,8 @@ class PostProcess:
     """
     # 类型的名字
     task_type = "rest"
+    # tasks 
+    tasks = []
     
     dataset_path = os.path.join(fMRI_Prep_Job.bids_output_path,'fmriprep')
 
