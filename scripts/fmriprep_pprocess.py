@@ -13,7 +13,7 @@ def run():
         tasks = PostProcess.tasks
     config = ProcessConfig()
     config.store_path = PostProcess.store_path
-    config.dataset_type = 'fmri_perp'
+    config.dataset_type = 'fmri_prep'
     config.low_pass = PostProcess.low_pass
     config.high_pass = PostProcess.high_pass
     config.t_r = PostProcess.t_r
