@@ -91,7 +91,6 @@ class RoiTs:
 
     smoothing_fwhm = 6
 
-    subject_id_index = -3
 
     save_path = os.path.join("/".join(PostProcess.store_path.split('/')[:-1]),'timeseries',ts_file)
 
@@ -104,13 +103,13 @@ class QC:
     '''
 
 
-class ML:
-    sub_ids = [i.split('.')[0] for i in os.listdir(RoiTs.save_path)]
-    csv = pd.read_csv('/share/data2/dataset/ds002748/depression/participants.tsv',sep='\t')
-    csv = pd.DataFrame({"participant_id":sub_ids}).merge(csv)
-    classifies = ["gender"]
-    regressions = ["age"]
-    classify_models = [SVC(),SVC(C=100),SVC(kernel='linear'),SVC(kernel='linear',C=100)]
-    regress_models = [SVR(),SVR(C=100),SVR(kernel='linear'),SVR(kernel='linear',C=100)]
-    kfold = 3
-    rois = 200
+# class ML:
+#     sub_ids = [i.split('.')[0] for i in os.listdir(RoiTs.save_path)]
+#     csv = pd.read_csv('/share/data2/dataset/ds002748/depression/participants.tsv',sep='\t')
+#     csv = pd.DataFrame({"participant_id":sub_ids}).merge(csv)
+#     classifies = ["gender"]
+#     regressions = ["age"]
+#     classify_models = [SVC(),SVC(C=100),SVC(kernel='linear'),SVC(kernel='linear',C=100)]
+#     regress_models = [SVR(),SVR(C=100),SVR(kernel='linear'),SVR(kernel='linear',C=100)]
+#     kfold = 3
+#     rois = 200
