@@ -34,7 +34,7 @@ def fileformat(file_name):
             d['sub_id'] = type_name
     if d.get('ses') == None:
         d['ses'] = "ses-0"
-    
+    return d
 
 def pipeline(args):
     subject_path = args
