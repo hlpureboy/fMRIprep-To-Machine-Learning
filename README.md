@@ -26,10 +26,10 @@ class fMRI_Prep_Job:
     fmri_work="/share/fmri_work"
     # freesurfer_license
     freesurfer_license = "/share/user_data/public/fanq_ocd/license.txt"
-    # contianer id fmriprep
-    contianer_id = "d7235efbbd3c"
+    # image id fmriprep
+    image_id = "d7235efbbd3c"
     # fmriprep cmd 
-    cmd ="docker run -it --rm -v {bids_data_path}:/data -v {freesurfer_license}:/opt/freesurfer/license.txt -v {bids_output_path}:/out -v {fmri_work}:/work {contianer_id} /data /out --skip_bids_validation --ignore slicetiming fieldmaps  -w /work --omp-nthreads {thread} --fs-no-reconall --resource-monitor participant --participant-label {subject_ids}"
+    cmd ="docker run -it --rm -v {bids_data_path}:/data -v {freesurfer_license}:/opt/freesurfer/license.txt -v {bids_output_path}:/out -v {fmri_work}:/work {image_id} /data /out --skip_bids_validation --ignore slicetiming fieldmaps  -w /work --omp-nthreads {thread} --fs-no-reconall --resource-monitor participant --participant-label {subject_ids}"
 ```
 ## 2. fmriprep post preocess
 这一步的操作主要依赖于`fmribrant`，主要作用是回归掉白质信号、脑脊液信号、全脑信号、头动信息、并进行滤波（可选），将其处理后的文件放存在`prcoessed/post-precoss/<un>fliter/clean_imgs`中，`<un>`可选表示是否进行滤波。该配置中不建议修改`dataset_path`,`store_path`
