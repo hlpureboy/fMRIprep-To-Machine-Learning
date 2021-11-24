@@ -26,10 +26,10 @@ class fMRI_Prep_Job:
     
     # freesurfer_license
     freesurfer_license = "/share/user_data/public/fanq_ocd/license.txt"
-    # contianer id 
-    contianer_id = "d7235efbbd3c"
+    # image id 
+    image_id = "d7235efbbd3c"
     # fmriprep cmd 
-    cmd ="docker run -it --rm -v {bids_data_path}:/data -v {freesurfer_license}:/opt/freesurfer/license.txt -v {bids_output_path}:/out -v {fmri_work}:/work {contianer_id} /data /out --skip_bids_validation --ignore slicetiming fieldmaps  -w /work --omp-nthreads {thread} --fs-no-reconall --resource-monitor participant --participant-label {subject_ids}"
+    cmd ="docker run -it --rm -v {bids_data_path}:/data -v {freesurfer_license}:/opt/freesurfer/license.txt -v {bids_output_path}:/out -v {fmri_work}:/work {image_id} /data /out --skip_bids_validation --ignore slicetiming fieldmaps  -w /work --omp-nthreads {thread} --fs-no-reconall --resource-monitor participant --participant-label {subject_ids}"
 
 class Result:
     path = "./result/"

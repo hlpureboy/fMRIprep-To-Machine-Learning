@@ -21,7 +21,7 @@ def _fmriprep_cmd(args):
     """
     bids_data_path,freesurfer_license,bids_output_path,fmri_work,subject_ids,thread = args
     cmd = fMRI_Prep_Job.cmd
-    cmd = cmd.format(bids_data_path=bids_data_path,freesurfer_license=freesurfer_license,bids_output_path=bids_output_path,contianer_id=fMRI_Prep_Job.contianer_id,fmri_work=fmri_work,subject_ids=" ".join(subject_ids),thread=thread)
+    cmd = cmd.format(bids_data_path=bids_data_path,freesurfer_license=freesurfer_license,bids_output_path=bids_output_path,image_id=fMRI_Prep_Job.image_id,fmri_work=fmri_work,subject_ids=" ".join(subject_ids),thread=thread)
     logging.info(cmd)
     wrap_log = os.popen(cmd)
     for log in wrap_log:pass
